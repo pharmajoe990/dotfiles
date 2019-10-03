@@ -1,0 +1,6 @@
+.idea/
+.tool-versions
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+yarn-error.log

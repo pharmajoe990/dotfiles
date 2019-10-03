@@ -1,0 +1,31 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Tim Roper
+	email = tim.roper@ovoenergy.com.au
+[user]
+	name = Tim Roper
+[alias]
+	st = status
+	l = log --graph --oneline --abbrev-commit --decorate --all
+	ap = add -p
+	co = commit
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = 0
+[difftool "nvimdiff"]	
+        cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = 1
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[core]
+	autocrlf = input
+	excludesfile = /Users/timroper/.gitignore_global
