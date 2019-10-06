@@ -5,7 +5,7 @@
 export ZSH=$HOME/.oh-my-zsh				# Path to your oh-my-zsh installation.
 # powerline-daemon -q						# Startup Powerline daemon
 ZSH_THEME="gallois"						# Set the theme
-plugins=(asdf git ruby docker docker-compose)
+plugins=(asdf aws git ruby docker docker-compose)
 source $ZSH/oh-my-zsh.sh
 . $HOME/.aliases						# Setup aliases from file
 
