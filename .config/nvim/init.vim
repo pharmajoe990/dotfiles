@@ -26,7 +26,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'janko/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'srcery-colors/srcery-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Formatting
