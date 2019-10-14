@@ -84,6 +84,9 @@ nmap <silent> t<C-g> :TestVisit<CR>
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
+" coc
+nmap gd <Plug>(coc-definition)
+nmap gt <Plug>(coc-type-definition)
 
 " Plugin configuration
 let g:airline#extensions#tabline#enabled = 1
