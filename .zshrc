@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh				# Path to your oh-my-zsh installation.
 ZSH_THEME="gallois"						# Set the theme
 plugins=(asdf aws git ruby docker docker-compose)
 source $ZSH/oh-my-zsh.sh
-. $HOME/.aliases						# Setup aliases from file
+#. $HOME/.aliases						# Setup aliases from file
 
 BASE16_SHELL="$HOME/.config/base16-shell/"			# Base16 Shell
 [ -n "$PS1" ] && \
@@ -28,6 +28,7 @@ if [ -f '/Users/tim.roper/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/U
 if [ -f '/Users/tim.roper/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tim.roper/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 . /usr/local/opt/asdf/asdf.sh
+export PATH="$PATH:$(yarn global bin)"
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
