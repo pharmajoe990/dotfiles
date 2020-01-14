@@ -27,6 +27,8 @@ Plug 'janko/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'metakirby5/codi.vim'
 call plug#end()
 
 " Formatting
@@ -55,10 +57,10 @@ if exists('+termguicolors')
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Disable this so we can have different VIM theme to terminal
-if filereadable(expand("~/.vimrc_background"))
-  source ~/.vimrc_background
-endif
-" colorscheme PaperColor
+" if filereadable(expand("~/.vimrc_background"))
+"   source ~/.vimrc_background
+" endif
+colorscheme PaperColor
 set background=dark
 
 
