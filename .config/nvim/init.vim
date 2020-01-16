@@ -6,20 +6,19 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
-Plug 'ngmy/vim-rubocop'
+" Plug 'ngmy/vim-rubocop'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'chr4/nginx.vim'
-Plug 'elixir-editors/vim-elixir'
+" Plug 'honza/vim-snippets'
+" Plug 'chr4/nginx.vim'
+" Plug 'elixir-editors/vim-elixir'
 Plug 'jremmen/vim-ripgrep'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fireplace'
-Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-grepper'
 Plug 'NLKNguyen/papercolor-theme'
@@ -29,6 +28,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'metakirby5/codi.vim'
+Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 call plug#end()
 
 " Formatting
@@ -60,7 +60,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " if filereadable(expand("~/.vimrc_background"))
 "   source ~/.vimrc_background
 " endif
-colorscheme PaperColor
+" let g:gruvbox_material_background = 'hard'
+colorscheme base16-atlas
 set background=dark
 
 
@@ -97,8 +98,6 @@ let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:UltiSnipsSnippetDir="$HOME/.ultisnips"
-let g:deoplete#enable_at_startup = 1
 let g:ctrlp_extensions = ['line']
 let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_custom_ignore = '.git\|node_modules'

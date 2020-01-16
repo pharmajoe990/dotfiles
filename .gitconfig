@@ -9,6 +9,7 @@
 	l = log --graph --oneline --abbrev-commit --decorate --all
 	ap = add -p
 	co = commit
+	prm = pull --rebase origin master
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -28,4 +29,4 @@
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [core]
 	autocrlf = input
-	excludesfile = /Users/timroper/.gitignore_global
+	excludesfile = /Users/ropes/.gitignore_global
