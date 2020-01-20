@@ -29,6 +29,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'metakirby5/codi.vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+Plug 'dracula/vim'
 call plug#end()
 
 " Formatting
@@ -61,7 +62,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "   source ~/.vimrc_background
 " endif
 " let g:gruvbox_material_background = 'hard'
-colorscheme base16-atlas
+colorscheme dracula
 set background=dark
 
 
