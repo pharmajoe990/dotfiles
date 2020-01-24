@@ -62,7 +62,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "   source ~/.vimrc_background
 " endif
 " let g:gruvbox_material_background = 'hard'
-colorscheme dracula
+colorscheme PaperColor
 set background=dark
 
 
@@ -91,6 +91,7 @@ nmap <C-c>r <Plug>SetTmuxVars
 " coc
 nmap gd <Plug>(coc-definition)
 nmap gt <Plug>(coc-type-definition)
+nmap rs <Plug>(coc-rename)
 
 " Plugin configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -119,6 +120,8 @@ let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 " gitgutter
 set updatetime=100
+" Codi
+let g:codi#width = 50.0
 
 " Neomake config
 call neomake#configure#automake('w')         " When writing a buffer (no delay).
