@@ -12,24 +12,20 @@ Plug 'vim-syntastic/syntastic'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" Plug 'chr4/nginx.vim'
-" Plug 'elixir-editors/vim-elixir'
 Plug 'jremmen/vim-ripgrep'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fireplace'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-grepper'
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'janko/vim-test'
 Plug 'jgdavey/tslime.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'metakirby5/codi.vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
-Plug 'dracula/vim'
 call plug#end()
 
 " Formatting
@@ -61,8 +57,8 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " if filereadable(expand("~/.vimrc_background"))
 "   source ~/.vimrc_background
 " endif
-" let g:gruvbox_material_background = 'hard'
-colorscheme PaperColor
+let g:gruvbox_material_background = 'soft'
+colorscheme gruvbox-material
 set background=dark
 
 
@@ -132,3 +128,7 @@ let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 
 " let g:ruby_host_prog = '$HOME/.rbenv/versions/2.5.1/bin/neovim-ruby-host'	" Path to Ruby, to avoid rbenv shimming in
 
+" Filetype specific configuration
+" Typescript/Javascript
+autocmd Filetype typescriptreact setlocal tabstop=2
+autocmd Filetype typescriptreact setlocal expandtab

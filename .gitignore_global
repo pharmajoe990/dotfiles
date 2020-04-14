@@ -4,3 +4,6 @@
 *.sublime-project
 *.sublime-workspace
 yarn-error.log
+.bloop/
+.metals/
+/**/metals.sbt

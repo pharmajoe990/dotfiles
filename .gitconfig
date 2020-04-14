@@ -10,6 +10,7 @@
 	ap = add -p
 	co = commit
 	prm = pull --rebase origin master
+	can = commit --amend --no-edit
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -17,6 +18,7 @@
 	process = git-lfs filter-process
 [diff]
 	tool = nvimdiff
+	algorithm = histogram
 [difftool]
 	prompt = 0
 [difftool "nvimdiff"]	
