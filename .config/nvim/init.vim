@@ -24,6 +24,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'metakirby5/codi.vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
 call plug#end()
@@ -31,6 +33,7 @@ call plug#end()
 " Formatting
 set shiftwidth=2
 "set tabstop=1 
+setlocal spell spelllang=en_au
 
 " Misc config
 set relativenumber
@@ -57,10 +60,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " if filereadable(expand("~/.vimrc_background"))
 "   source ~/.vimrc_background
 " endif
-let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_background = 'hard'
 colorscheme gruvbox-material
 set background=dark
-
 
 " **** KEY REMAPPINGS ****
 inoremap jj <esc>
@@ -87,6 +89,7 @@ nmap <C-c>r <Plug>SetTmuxVars
 " coc
 nmap gd <Plug>(coc-definition)
 nmap gt <Plug>(coc-type-definition)
+nmap gi <Plug>(coc-implementation)
 nmap rs <Plug>(coc-rename)
 
 " Plugin configuration
@@ -132,3 +135,6 @@ let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 " Typescript/Javascript
 autocmd Filetype typescriptreact setlocal tabstop=2
 autocmd Filetype typescriptreact setlocal expandtab
+
+" Coc and extension configuration
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
