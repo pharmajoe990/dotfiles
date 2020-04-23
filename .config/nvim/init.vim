@@ -28,6 +28,7 @@ Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'metakirby5/codi.vim'
 Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
+Plug 'doums/darcula' 
 call plug#end()
 
 " Formatting
@@ -61,8 +62,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 "   source ~/.vimrc_background
 " endif
 let g:gruvbox_material_background = 'hard'
-colorscheme gruvbox-material
+colorscheme darcula
 set background=dark
+let g:airline_theme='base16_default'
 
 " **** KEY REMAPPINGS ****
 inoremap jj <esc>
