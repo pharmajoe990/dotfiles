@@ -10,7 +10,12 @@
 	ap = add -p
 	co = commit
 	prm = pull --rebase origin master
+	pram = pull --rebase --autostash origin master
 	can = commit --amend --no-edit
+	cm = checkout master
+	nb = checkout -b 
+	ds = diff --staged
+	d = diff
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

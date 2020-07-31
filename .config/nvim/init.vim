@@ -1,40 +1,36 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
-" Plug 'ngmy/vim-rubocop'
-Plug 'chriskempson/base16-vim'
-Plug 'vim-syntastic/syntastic'
+" Plug 'vim-syntastic/syntastic'	" ** This causes .scala files to take ages to load **
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'jremmen/vim-ripgrep'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'neomake/neomake'
-Plug 'tpope/vim-fireplace'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-grepper'
-Plug 'janko/vim-test'
-Plug 'jgdavey/tslime.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'metakirby5/codi.vim'
-Plug 'gruvbox-material/vim', {'as': 'gruvbox-material'}
-Plug 'doums/darcula' 
+Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
+Plug 'ryanoasis/vim-devicons' 
+Plug 'voldikss/vim-floaterm'
+Plug 'jceb/vim-orgmode'
+Plug 'jgdavey/tslime.vim'
 call plug#end()
+
+let g:polyglot_disabled = ['scala']
 
 " Formatting
 set shiftwidth=2
 "set tabstop=1 
-setlocal spell spelllang=en_au
+" setlocal spell spelllang=en_au
 
 " Misc config
 set relativenumber
@@ -47,6 +43,7 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+set nowrap
 
 " Colors/themes
 syntax enable
@@ -57,16 +54,10 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" Disable this so we can have different VIM theme to terminal
-" if filereadable(expand("~/.vimrc_background"))
-"   source ~/.vimrc_background
-" endif
-let g:gruvbox_material_background = 'hard'
-colorscheme darcula
+colorscheme tempus_winter
 set background=dark
-let g:airline_theme='base16_default'
 
-" **** KEY REMAPPINGS ****
+" Key Remappings
 inoremap jj <esc>
 map <C-n> :NERDTreeToggle<CR>
 let mapleader=" "
@@ -78,13 +69,13 @@ nnoremap <Leader>h <C-w><left>
 nnoremap <Leader>l <C-w><right>
 nnoremap <Leader>d :bd<cr>
 nnoremap <Leader>w :w<cr>
-" vim-test
-nmap <silent> t<C-n> :TestNearest<CR>
-nmap <silent> t<C-f> :TestFile<CR>
-nmap <silent> t<C-s> :TestSuite<CR>
-nmap <silent> t<C-l> :TestLast<CR>
-nmap <silent> t<C-g> :TestVisit<CR>
-" tslime
+" vim-test (removed)
+" nmap <silent> t<C-n> :TestNearest<CR>
+" nmap <silent> t<C-f> :TestFile<CR>
+" nmap <silent> t<C-s> :TestSuite<CR>
+" nmap <silent> t<C-l> :TestLast<CR>
+" nmap <silent> t<C-g> :TestVisit<CR>
+" tslime (removed)
 vmap <C-c><C-c> <Plug>SendSelectionToTmux
 nmap <C-c><C-c> <Plug>NormalModeSendToTmux
 nmap <C-c>r <Plug>SetTmuxVars
@@ -92,10 +83,17 @@ nmap <C-c>r <Plug>SetTmuxVars
 nmap gd <Plug>(coc-definition)
 nmap gt <Plug>(coc-type-definition)
 nmap gi <Plug>(coc-implementation)
+nmap gr <Plug>(coc-references)
 nmap rs <Plug>(coc-rename)
+" System clipboard integration
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p
 
 " Plugin configuration
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 let g:GitGutterEnable = 1
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -106,30 +104,30 @@ let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_custom_ignore = '.git\|node_modules'
 let g:ctrlp_show_hidden = 1
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:NERDTreeWinSize = 50
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-" vim-test
-let test#strategy = 'neovim'
-" tslime
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 0
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" vim-test (removed)
+" let test#strategy = 'neovim'
+" tslime (removed)
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 " gitgutter
 set updatetime=100
-" Codi
-let g:codi#width = 50.0
+" Codi (removed)
+" let g:codi#width = 50.0
 
 " Neomake config
-call neomake#configure#automake('w')         " When writing a buffer (no delay).
-call neomake#configure#automake('nw', 100)   " When writing a buffer (no delay), and on normal mode changes (after 750ms).
-call neomake#configure#automake('rw', 100)  " When reading a buffer (after 1s), and when writing (no delay).
-call neomake#configure#automake('nrwi', 100) " Full config: when writing or reading a buffer, and on changes in insert and normal mode (after 1s; no delay when writing).
-let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
+" call neomake#configure#automake('w')         " When writing a buffer (no delay).
+" call neomake#configure#automake('nw', 100)   " When writing a buffer (no delay), and on normal mode changes (after 750ms).
+" call neomake#configure#automake('rw', 100)  " When reading a buffer (after 1s), and when writing (no delay).
+" call neomake#configure#automake('nrwi', 100) " Full config: when writing or reading a buffer, and on changes in insert and normal mode (after 1s; no delay when writing).
+" let g:neomake_javascript_eslint_exe = $PWD .'/node_modules/.bin/eslint'
 
 " let g:ruby_host_prog = '$HOME/.rbenv/versions/2.5.1/bin/neovim-ruby-host'	" Path to Ruby, to avoid rbenv shimming in
 
