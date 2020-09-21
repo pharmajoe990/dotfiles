@@ -1,8 +1,9 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
+" Plug 'itchyny/lightline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'scrooloose/nerdtree'
 " Plug 'vim-syntastic/syntastic'	" ** This causes .scala files to take ages to load **
@@ -19,10 +20,12 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
-Plug 'ryanoasis/vim-devicons' 
+" Plug 'ryanoasis/vim-devicons' 
 Plug 'voldikss/vim-floaterm'
 Plug 'jceb/vim-orgmode'
 Plug 'jgdavey/tslime.vim'
+" Plug 'embark-theme/vim'
+Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 call plug#end()
 
 let g:polyglot_disabled = ['scala']
@@ -54,7 +57,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme tempus_winter
+colorscheme tempus_warp
 set background=dark
 
 " Key Remappings
@@ -92,6 +95,9 @@ noremap <Leader>Y "+y
 noremap <Leader>P "+p
 
 " Plugin configuration
+" let g:lightline = {
+"       \ 'colorscheme': 'embark',
+"       \ }
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:GitGutterEnable = 1

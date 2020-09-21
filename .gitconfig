@@ -8,9 +8,12 @@
 	st = status
 	l = log --graph --oneline --abbrev-commit --decorate --all
 	ap = add -p
+	c = checkout
 	co = commit
+	com = commit -m 
 	prm = pull --rebase origin master
 	pram = pull --rebase --autostash origin master
+	po = push origin 
 	can = commit --amend --no-edit
 	cm = checkout master
 	nb = checkout -b 
