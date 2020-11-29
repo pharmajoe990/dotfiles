@@ -1,13 +1,7 @@
-# zmodload zsh/zprof
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# zmodload zsh/zprof # <- This will load the profiler tool for ZSH. Need zprof at the end of this file as well.
 
-export ZSH=$HOME/.oh-my-zsh				# Path to your oh-my-zsh installation.
-# powerline-daemon -q						# Startup Powerline daemon
-ZSH_THEME="agnoster"						# Set the theme
-plugins=(asdf aws git ruby docker docker-compose)
-source $ZSH/oh-my-zsh.sh
-#. $HOME/.aliases						
+bindkey -v 							# Use Vi mode
+
 # Setup aliases
 alias l='ls -l'
 alias la='ls -a'
@@ -21,25 +15,33 @@ BASE16_SHELL="$HOME/.config/base16-shell/"			# Base16 Shell
 export PATH="/usr/local/opt/curl/bin:$PATH"			# Use Homebrew version of CURL
 export EDITOR="nvim"
 
-# Additional SSH Identities
-# ssh-add -q "${HOME}/.ssh/id_rsa_work_macbook"
-# ssh-add -q "${HOME}/.ssh/id_rsa"
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tim.roper/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tim.roper/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/tim.roper/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tim.roper/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
 
-. /usr/local/opt/asdf/asdf.sh
-export PATH="$PATH:$(yarn global bin)"
+### End of Zinit's installer chunk
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/timroper/code/au-begin-acquisition/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/timroper/code/au-begin-acquisition/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/timroper/code/au-begin-acquisition/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/timroper/code/au-begin-acquisition/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/timroper/code/au-begin-acquisition/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/timroper/code/au-begin-acquisition/node_modules/tabtab/.completions/slss.zsh
+# Set theme
+setopt promptsubst
+zinit light agnoster/agnoster-zsh-theme
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+# zprof # <- Display profile information (see line 1)

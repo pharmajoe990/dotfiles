@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Plug 'itchyny/lightline.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
@@ -20,12 +21,13 @@ Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
-" Plug 'ryanoasis/vim-devicons' 
 Plug 'voldikss/vim-floaterm'
-Plug 'jceb/vim-orgmode'
+" Plug 'jceb/vim-orgmode'
 Plug 'jgdavey/tslime.vim'
-" Plug 'embark-theme/vim'
 Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
+Plug 'wincent/corpus'
+Plug 'liuchengxu/space-vim-theme'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 let g:polyglot_disabled = ['scala']
@@ -57,8 +59,16 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme tempus_warp
+colorscheme PaperColor
 set background=dark
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'allow_bold': 1,
+  \       'allow_italic': 1
+  \     }
+  \   }
+  \ }
 
 " Key Remappings
 inoremap jj <esc>
@@ -88,6 +98,8 @@ nmap gt <Plug>(coc-type-definition)
 nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap rs <Plug>(coc-rename)
+nmap pp <Plug>(coc-prettier)
+map pp :Prettier<CR>
 " System clipboard integration
 noremap <Leader>y "*y
 noremap <Leader>p "*p
@@ -100,6 +112,7 @@ noremap <Leader>P "+p
 "       \ }
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_theme='sol'
 let g:GitGutterEnable = 1
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -127,6 +140,8 @@ let g:tslime_always_current_window = 1
 set updatetime=100
 " Codi (removed)
 " let g:codi#width = 50.0
+packloadall
+silent! helptags ALL
 
 " Neomake config
 " call neomake#configure#automake('w')         " When writing a buffer (no delay).
@@ -144,3 +159,4 @@ autocmd Filetype typescriptreact setlocal expandtab
 
 " Coc and extension configuration
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+

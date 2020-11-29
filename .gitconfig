@@ -12,10 +12,13 @@
 	co = commit
 	com = commit -m 
 	prm = pull --rebase origin master
+	prmm = pull --rebase origin main
 	pram = pull --rebase --autostash origin master
+	pramm = pull --rebase --autostash origin main
 	po = push origin 
 	can = commit --amend --no-edit
 	cm = checkout master
+	cmm = checkout main
 	nb = checkout -b 
 	ds = diff --staged
 	d = diff
