@@ -6,6 +6,9 @@ bindkey -v 							# Use Vi mode
 alias l='ls -l'
 alias la='ls -a'
 alias ltra='ls -ltra'
+alias ..='cd ..'
+alias ...='../..'
+alias ....='../../..'
 
 BASE16_SHELL="$HOME/.config/base16-shell/"			# Base16 Shell
 [ -n "$PS1" ] && \
