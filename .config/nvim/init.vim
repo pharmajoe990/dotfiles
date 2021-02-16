@@ -1,3 +1,10 @@
+" TODO 
+" This is a list of functionality that is in use in other IDEs that could be
+" added to NeoVim config (possibly)
+" - (Webstorm/jetbrains) - OSX - cmd+shift+T - Open associated test file
+" - (Webstorm/jetbrains) - OSX - Run Prettier or code format on save (write)
+
+
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -20,6 +27,7 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
+Plug 'felippepuhle/coc-graphql', {'do': 'yarn install --frozen-lockfile'}
 Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
 Plug 'voldikss/vim-floaterm'
 " Plug 'jceb/vim-orgmode'
@@ -28,6 +36,7 @@ Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
 Plug 'wincent/corpus'
 Plug 'liuchengxu/space-vim-theme'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'danilo-augusto/vim-afterglow'
 call plug#end()
 
 let g:polyglot_disabled = ['scala']
@@ -59,7 +68,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme PaperColor
+colorscheme afterglow
 set background=dark
 let g:PaperColor_Theme_Options = {
   \   'theme': {
@@ -112,7 +121,8 @@ noremap <Leader>P "+p
 "       \ }
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme='sol'
+" let g:airline_theme='sol'
+let g:airline_theme='afterglow'
 let g:GitGutterEnable = 1
 let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -160,3 +170,5 @@ autocmd Filetype typescriptreact setlocal expandtab
 " Coc and extension configuration
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/bin/python3'

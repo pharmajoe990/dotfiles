@@ -16,6 +16,7 @@
 	pram = pull --rebase --autostash origin master
 	pramm = pull --rebase --autostash origin main
 	po = push origin 
+	poh = push origin HEAD
 	can = commit --amend --no-edit
 	cm = checkout master
 	cmm = checkout main
