@@ -57,7 +57,7 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
-set nowrap
+" set nowrap
 
 " Colors/themes
 syntax enable
@@ -68,7 +68,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme afterglow
+colorscheme PaperColor
 set background=dark
 let g:PaperColor_Theme_Options = {
   \   'theme': {
@@ -78,6 +78,9 @@ let g:PaperColor_Theme_Options = {
   \     }
   \   }
   \ }
+
+" Custom syntax settings
+autocmd BufNewFile,BufRead *.mjml set syntax=html " MJML
 
 " Key Remappings
 inoremap jj <esc>
@@ -121,7 +124,7 @@ noremap <Leader>P "+p
 "       \ }
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" let g:airline_theme='sol'
+let g:airline_theme='papercolor'
 let g:airline_theme='afterglow'
 let g:GitGutterEnable = 1
 let g:UltiSnipsUsePythonVersion = 3

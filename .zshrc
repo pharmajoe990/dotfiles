@@ -18,8 +18,11 @@ BASE16_SHELL="$HOME/.config/base16-shell/"			# Base16 Shell
 export PATH="/usr/local/opt/curl/bin:$PATH"			# Use Homebrew version of CURL
 export EDITOR="nvim"
 
+# ASDF version manager
+. /usr/local/opt/asdf/asdf.sh
+
 ## Check the admin scripts are installed in add to PATH
-[ -d $HOME/code/au-admin-scripts ] && export PATH="$PATH:$HOME/code/au-admin-scripts/scripts"
+[ -d $HOME/code/au-admin-scripts/scripts/release ] && export PATH="$PATH:$HOME/code/au-admin-scripts/scripts/release"
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -88,3 +91,4 @@ export JAVA_HOME="$JDK_PATH"
 # eval "$(starship init zsh)"
 
 # zprof # <- Display profile information (see line 1)
+
