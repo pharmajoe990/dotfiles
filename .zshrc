@@ -3,9 +3,11 @@
 bindkey -v 							# Use Vi mode
 
 # Setup aliases
+alias ls='exa'
 alias l='ls -l'
 alias la='ls -a'
-alias ltra='ls -ltra'
+alias lsltm='ls -lt modified'
+alias lsltc='ls -lt created'
 alias ..='cd ..'
 alias ...='../..'
 alias ....='../../..'
@@ -20,6 +22,7 @@ export EDITOR="nvim"
 
 # ASDF version manager
 . /usr/local/opt/asdf/asdf.sh
+export PATH="$PATH:$(yarn global bin)"              # Add asdf global yarn bin to PATH
 
 ## Check the admin scripts are installed in add to PATH
 [ -d $HOME/code/au-admin-scripts/scripts/release ] && export PATH="$PATH:$HOME/code/au-admin-scripts/scripts/release"
@@ -83,9 +86,7 @@ zinit light agnoster/agnoster-zsh-theme
 #
 
 # JDK version
-JDK_PATH="/usr/local/opt/openjdk@8"
-PATH="$JDK_PATH/bin:$PATH"
-export JAVA_HOME="$JDK_PATH"
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Load starship prompt
 # eval "$(starship init zsh)"
