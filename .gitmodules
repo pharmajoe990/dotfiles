@@ -1,3 +1,6 @@
 [submodule ".config/base16-shell"]
 	path = .config/base16-shell
 	url = git@github.com:chriskempson/base16-shell.git
+[submodule ".config/nvim/colors/papercolor-theme-slim"]
+	path = .config/nvim/colors/papercolor-theme-slim
+	url = git@github.com:pappasam/papercolor-theme-slim.git
