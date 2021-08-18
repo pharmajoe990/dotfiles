@@ -4,3 +4,6 @@
 [submodule ".config/nvim/colors/papercolor-theme-slim"]
 	path = .config/nvim/colors/papercolor-theme-slim
 	url = git@github.com:pappasam/papercolor-theme-slim.git
+[submodule ".base16-tmux"]
+	path = .base16-tmux
+	url = git@github.com:pharmajoe990/base16-tmux.git
