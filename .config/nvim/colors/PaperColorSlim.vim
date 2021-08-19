@@ -1,1 +1,0 @@
-papercolor-theme-slim/colors/PaperColorSlim.vim
