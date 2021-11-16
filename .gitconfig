@@ -43,4 +43,4 @@
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [core]
 	autocrlf = input
-	excludesfile = /Users/ropes/.gitignore_global
+	excludesFile = ~/.gitignore_global
