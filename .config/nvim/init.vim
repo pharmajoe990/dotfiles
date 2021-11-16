@@ -1,8 +1,15 @@
 " TODO 
 " This is a list of functionality that is in use in other IDEs that could be
 " added to NeoVim config (possibly)
-" - (Webstorm/jetbrains) - OSX - cmd+shift+T - Open associated test file
-" - (Webstorm/jetbrains) - OSX - Run Prettier or code format on save (write)
+" - (Webstorm/jetbrains) -  cmd+shift+T - Open associated test file
+" -                      -  Replace CoC with native LSP
+" -                      -  Spell checking
+" -                      -  Ignore .gitignore files from ctrl-p
+" -                      -  Better ripgrep integration and search
+" -                      -  vim-sneak
+" -                      -  Replace airline with something?
+" -                      -  run tests from editor?
+" -                      -  Look at some different auto-complete engines
 
 " Needs to be set before plugin initialization below
 let g:polyglot_disabled = ['scala']
@@ -15,30 +22,26 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'scrooloose/nerdtree'
+" Plug 'scrooloose/nerdtree'
 " Plug 'vim-syntastic/syntastic'	" ** This causes .scala files to take ages to load **
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 Plug 'jremmen/vim-ripgrep'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'mhinz/vim-grepper'
-Plug 'sheerun/vim-polyglot'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'mhinz/vim-grepper'
+" Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'felippepuhle/coc-graphql', {'do': 'yarn install --frozen-lockfile'}
-Plug 'https://gitlab.com/protesilaos/tempus-themes-vim.git'
-Plug 'voldikss/vim-floaterm'
-" Plug 'jceb/vim-orgmode'
 Plug 'jgdavey/tslime.vim'
 Plug 'kdheepak/lazygit.nvim', { 'branch': 'nvim-v0.4.3' }
-Plug 'wincent/corpus'
-Plug 'liuchengxu/space-vim-theme'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'danilo-augusto/vim-afterglow'
+" Plug 'NLKNguyen/papercolor-theme'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 " Formatting
@@ -47,7 +50,7 @@ set shiftwidth=2
 " setlocal spell spelllang=en_au
 
 " Misc config
-set relativenumber
+" set relativenumber
 set number
 set encoding=utf-8
 filetype plugin on
@@ -68,16 +71,16 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme PaperColor
+colorscheme tokyonight
 set background=dark
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'allow_bold': 1,
-  \       'allow_italic': 1
-  \     }
-  \   }
-  \ }
+" let g:PaperColor_Theme_Options = {
+"   \   'theme': {
+"   \     'default': {
+"   \       'allow_bold': 1,
+"   \       'allow_italic': 1
+"   \     }
+"   \   }
+"   \ }
 
 " Custom syntax settings
 autocmd BufNewFile,BufRead *.mjml set syntax=html " MJML
@@ -155,6 +158,28 @@ set updatetime=100
 " let g:codi#width = 50.0
 packloadall
 silent! helptags ALL
+" ctrl-p
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+
+" Treesitter
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
+  ignore_install = {}, -- List of parsers to ignore installing
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+    disable = {},  -- list of language that will be disabled
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
+
 
 " Neomake config
 " call neomake#configure#automake('w')         " When writing a buffer (no delay).
