@@ -7,7 +7,6 @@
 " -                      -  Ignore .gitignore files from ctrl-p
 " -                      -  Better ripgrep integration and search
 " -                      -  vim-sneak
-" -                      -  Replace airline with something?
 " -                      -  run tests from editor?
 " -                      -  Look at some different auto-complete engines
 
@@ -15,9 +14,9 @@
 let g:polyglot_disabled = ['scala']
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'itchyny/lightline.vim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-fugitive'
@@ -180,6 +179,14 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+" Lualine
+lua << END
+require'lualine'.setup {
+  options = {
+    theme = 'tokyonight'
+  }
+}
+END
 
 " Neomake config
 " call neomake#configure#automake('w')         " When writing a buffer (no delay).
