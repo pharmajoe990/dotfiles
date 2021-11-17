@@ -86,7 +86,6 @@ autocmd BufNewFile,BufRead *.mjml set syntax=html " MJML
 
 " Key Remappings
 inoremap jj <esc>
-map <C-n> :NERDTreeToggle<CR>
 let mapleader=" "
 nnoremap <C-j> 5j
 nnoremap <C-k> 5k
@@ -140,7 +139,6 @@ let g:ctrlp_show_hidden = 1
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:NERDTreeWinSize = 50
 " let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_auto_loc_list = 0
 " let g:syntastic_check_on_open = 1
