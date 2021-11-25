@@ -11,20 +11,21 @@
 " -                      -  run tests from editor?
 " -                      -  Look at some different auto-complete engines
 
-" Needs to be set before plugin initialization below
-let g:polyglot_disabled = ['scala']
-
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
+Plug 'TimUntersberger/neogit'
 Plug 'SirVer/ultisnips'
 Plug 'jremmen/vim-ripgrep'
+Plug 'jgdavey/tslime.vim'
+Plug 'nvim-lua/plenary.nvim'
+" CoC
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
@@ -32,9 +33,9 @@ Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'felippepuhle/coc-graphql', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
-Plug 'jgdavey/tslime.vim'
+" Color scheme(s)
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'EdenEast/nightfox.nvim'
 call plug#end()
 
 " Formatting
@@ -167,6 +168,13 @@ require'lualine'.setup {
     theme = 'tokyonight'
   }
 }
+END
+
+" Neogit
+lua << END
+local neogit = require('neogit')
+
+neogit.setup {}
 END
 
 " let g:ruby_host_prog = '$HOME/.rbenv/versions/2.5.1/bin/neovim-ruby-host'	" Path to Ruby, to avoid rbenv shimming in
