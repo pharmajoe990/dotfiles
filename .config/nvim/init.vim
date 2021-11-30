@@ -4,17 +4,15 @@
 " - (Webstorm/jetbrains) -  cmd+shift+T - Open associated test file
 " -                      -  Replace CoC with native LSP
 " -                      -  Spell checking
-" -                      -  Ignore .gitignore files from ctrl-p
 " -                      -  Better ripgrep integration and search
-" -                      -  Telescope instead of ctrlP
 " -                      -  vim-sneak
 " -                      -  run tests from editor?
 " -                      -  Look at some different auto-complete engines
+" -                      -  Make config modular, split into files
 
 call plug#begin('~/.vim/plugged')
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -24,8 +22,10 @@ Plug 'SirVer/ultisnips'
 Plug 'jremmen/vim-ripgrep'
 Plug 'jgdavey/tslime.vim'
 Plug 'nvim-lua/plenary.nvim'
-" CoC
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-eslint', {'do': 'yarn install --frozen-lockfile'}
@@ -95,6 +95,11 @@ nmap rs <Plug>(coc-rename)
 nmap pp <Plug>(coc-prettier)
 map pp :Prettier<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " coc - Scala
 " Used to expand decorations in worksheets
@@ -126,10 +131,6 @@ let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-let g:ctrlp_extensions = ['line']
-let g:ctrlp_cmd = 'CtrlPLastMode'
-let g:ctrlp_custom_ignore = '.git\|node_modules'
-let g:ctrlp_show_hidden = 1
 set statusline+=%#warningmsg#
 set statusline+=%*
 " tslime (removed)
