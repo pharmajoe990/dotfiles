@@ -3,7 +3,7 @@
 bindkey -v 							# Use Vi mode
 
 # Setup aliases
-alias ls='exa'
+# alias ls='exa'
 alias l='ls -l'
 alias la='ls -a'
 alias lsltm='ls -lt modified'
@@ -23,6 +23,9 @@ export EDITOR="nvim"
 # ASDF version manager
 . /usr/local/opt/asdf/asdf.sh
 export PATH="$PATH:$(yarn global bin)"              # Add asdf global yarn bin to PATH
+
+# Utility scripts go here and are on the PATH
+[ -d $HOME/scripts ] && export PATH="$PATH:$HOME/scripts"
 
 ## Check the admin scripts are installed in add to PATH
 [ -d $HOME/code/au-admin-scripts/scripts/release ] && export PATH="$PATH:$HOME/code/au-admin-scripts/scripts/release"
@@ -65,6 +68,9 @@ zinit ice atclone"dircolors -b LS_COLORS > clrs.zsh" \
     atload'zstyle ":completion:*" list-colors “${(s.:.)LS_COLORS}”'
 zinit light trapd00r/LS_COLORS
 
+# JQ interactive query tool
+zinit light 'reegnz/jq-zsh-plugin'
+
 # Zinit - fzf-tab: completions using fzf
 zinit light Aloxaf/fzf-tab
 # disable sort when completing `git checkout`
@@ -96,3 +102,5 @@ zinit light agnoster/agnoster-zsh-theme
 
 # zprof # <- Display profile information (see line 1)
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
