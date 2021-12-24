@@ -25,6 +25,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'ggandor/lightspeed.nvim'
+Plug 'jceb/vim-orgmode'
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
@@ -33,9 +35,12 @@ Plug 'neoclide/coc-prettier', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'felippepuhle/coc-graphql', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
-" Color scheme(s)
+" Colour scheme(s)
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'EdenEast/nightfox.nvim'
+Plug 'bluz71/vim-nightfly-guicolors'
+Plug 'pappasam/papercolor-theme-slim'
+Plug 'sainnhe/sonokai'
 call plug#end()
 
 " Formatting
@@ -56,7 +61,7 @@ set nofoldenable
 set foldlevel=2
 " set nowrap
 
-" Colors/themes
+" Colours/themes
 syntax enable
 " Enable true color
 if exists('+termguicolors')
@@ -65,7 +70,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme tokyonight
+colorscheme sonokai
 set background=dark
 " Custom syntax settings
 autocmd BufNewFile,BufRead *.mjml set syntax=html " MJML
@@ -96,9 +101,9 @@ nmap pp <Plug>(coc-prettier)
 map pp :Prettier<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>f <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " coc - Scala
@@ -166,7 +171,7 @@ EOF
 lua << END
 require'lualine'.setup {
   options = {
-    theme = 'tokyonight'
+    theme = 'nightfly'
   }
 }
 END
