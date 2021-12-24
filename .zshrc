@@ -88,6 +88,9 @@ zinit light agnoster/agnoster-zsh-theme
 # JDK version
 . ~/.asdf/plugins/java/set-java-home.zsh
 
+# https://github.com/rupa/z
+. /usr/local/etc/profile.d/z.sh
+
 # Load starship prompt
 # eval "$(starship init zsh)"
 
