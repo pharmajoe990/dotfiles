@@ -23,10 +23,12 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'jgdavey/tslime.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+Plug  'ctrlpvim/ctrlp.vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'ggandor/lightspeed.nvim'
 Plug 'jceb/vim-orgmode'
+Plug 'f-person/git-blame.nvim'
 " CoC
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
@@ -36,14 +38,25 @@ Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'felippepuhle/coc-graphql', {'do': 'yarn install --frozen-lockfile'}
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 " Colour scheme(s)
+Plug 'tjdevries/colorbuddy.vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'EdenEast/nightfox.nvim'
 Plug 'bluz71/vim-nightfly-guicolors'
 Plug 'pappasam/papercolor-theme-slim'
 Plug 'sainnhe/sonokai'
+Plug 'savq/melange'
+Plug 'lalitmee/cobalt2.nvim'
+Plug 'tjdevries/gruvbuddy.nvim'
 call plug#end()
 
 " Formatting
+filetype plugin indent on
+" On pressing tab, insert 2 spaces
+set expandtab
+" show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" when indenting with '>', use 2 spaces width
 set shiftwidth=2
 "set tabstop=1 
 " setlocal spell spelllang=en_au
@@ -64,13 +77,14 @@ set foldlevel=2
 " Colours/themes
 syntax enable
 " Enable true color
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
+" if exists('+termguicolors')
+"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
+colorscheme duskfox
+" lua require('colorbuddy').colorscheme('cobalt2')
+" endif
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme sonokai
 set background=dark
 " Custom syntax settings
 autocmd BufNewFile,BufRead *.mjml set syntax=html " MJML
@@ -98,6 +112,7 @@ nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap rs <Plug>(coc-rename)
 nmap pp <Plug>(coc-prettier)
+
 map pp :Prettier<CR>
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " Find files using Telescope command-line sugar.
@@ -147,12 +162,13 @@ packloadall
 silent! helptags ALL
 " ctrl-p
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" let g:ctrlp_cmd = 'CtrlPMRU'
 
 
 " Treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = {}, -- List of parsers to ignore installing
   highlight = {
@@ -171,7 +187,7 @@ EOF
 lua << END
 require'lualine'.setup {
   options = {
-    theme = 'nightfly'
+    theme = 'auto'
   }
 }
 END
@@ -197,3 +213,4 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " manager
 " let g:python_host_prog = '/usr/bin/python'
 " let g:python3_host_prog = '/usr/bin/python3'
+"

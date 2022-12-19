@@ -8,9 +8,6 @@ alias l='ls -l'
 alias la='ls -a'
 alias lsltm='ls -lt modified'
 alias lsltc='ls -lt created'
-alias ..='cd ..'
-alias ...='../..'
-alias ....='../../..'
 
 BASE16_SHELL="$HOME/.config/base16-shell/"			# Base16 Shell
 [ -n "$PS1" ] && \
@@ -21,14 +18,20 @@ export PATH="/usr/local/opt/curl/bin:$PATH"			# Use Homebrew version of CURL
 export EDITOR="nvim"
 
 # ASDF version manager
-. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/libexec/asdf.sh
 export PATH="$PATH:$(yarn global bin)"              # Add asdf global yarn bin to PATH
 
 # Utility scripts go here and are on the PATH
 [ -d $HOME/scripts ] && export PATH="$PATH:$HOME/scripts"
 
 ## Check the admin scripts are installed in add to PATH
-[ -d $HOME/code/au-admin-scripts/scripts/release ] && export PATH="$PATH:$HOME/code/au-admin-scripts/scripts/release"
+[ -d $HOME/Developer/au-admin-scripts/scripts/release ] && export PATH="$PATH:$HOME/Developer/au-admin-scripts/scripts/release"
+
+# Enable opening command in $EDITOR
+# # Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -83,6 +86,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
+# zsh-fzf-history-search
+zinit ice lucid wait'0'
+zinit light joshskidmore/zsh-fzf-history-search
 
 # Set theme
 setopt promptsubst
