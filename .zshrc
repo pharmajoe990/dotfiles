@@ -9,10 +9,11 @@ alias la='ls -a'
 alias lsltm='ls -lt modified'
 alias lsltc='ls -lt created'
 
-BASE16_SHELL="$HOME/.config/base16-shell/"			# Base16 Shell
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+        source "$BASE16_SHELL/profile_helper.sh"
 
 export PATH="/usr/local/opt/curl/bin:$PATH"			# Use Homebrew version of CURL
 export EDITOR="nvim"
@@ -26,6 +27,14 @@ export PATH="$PATH:$(yarn global bin)"              # Add asdf global yarn bin t
 
 ## Check the admin scripts are installed in add to PATH
 [ -d $HOME/Developer/au-admin-scripts/scripts/release ] && export PATH="$PATH:$HOME/Developer/au-admin-scripts/scripts/release"
+
+# Rust
+export PATH="$PATH:/Users/trrop/.asdf/installs/rust/1.68.2/bin"
+
+# Local executables/binaries
+export PATH="$PATH:/Users/trrop/.local/bin"
+
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
 
 # Enable opening command in $EDITOR
 # # Enable Ctrl-x-e to edit command line
@@ -101,7 +110,9 @@ zinit light agnoster/agnoster-zsh-theme
 . ~/.asdf/plugins/java/set-java-home.zsh
 
 # https://github.com/rupa/z
-. /usr/local/etc/profile.d/z.sh
+# Trying out zoxide instead
+# . /usr/local/etc/profile.d/z.sh
+eval "$(zoxide init zsh)"
 
 # Load starship prompt
 # eval "$(starship init zsh)"
@@ -110,3 +121,4 @@ zinit light agnoster/agnoster-zsh-theme
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
