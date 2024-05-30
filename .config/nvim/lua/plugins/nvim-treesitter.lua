@@ -5,6 +5,9 @@ return {
       ensure_installed = {
         "hcl",
         "terraform",
+        "lua",
+        "jsonc",
+        "typescript",
       },
     },
   },
