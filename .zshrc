@@ -112,124 +112,12 @@ eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
+. $HOME/.private.env
 
 zinit_init() { zinit creinstall ${HOME}/just.sh } 
 
-source /opt/homebrew/opt/asdf/libexec/asdf.sh
-
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
-
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
