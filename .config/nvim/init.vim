@@ -201,6 +201,8 @@ END
 
 " let g:ruby_host_prog = '$HOME/.rbenv/versions/2.5.1/bin/neovim-ruby-host'	" Path to Ruby, to avoid rbenv shimming in
 
+let g:python3_host_prog='/Users/troper/.asdf/shims/python3'
+
 " Filetype specific configuration
 " Typescript/Javascript
 autocmd Filetype typescriptreact setlocal tabstop=2
@@ -209,7 +211,3 @@ autocmd Filetype typescriptreact setlocal expandtab
 " Coc and extension configuration
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
-" Don't use system install on MacOS - use local python from ASDF version
-" manager
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
