@@ -110,9 +110,15 @@ eval "$(zoxide init zsh)"
 
 zinit_init() { zinit creinstall ${HOME}/just.sh } 
 
-# asdf setup 
-export PATH="$(brew --prefix asdf)/bin:$PATH"
-export PATH="$HOME/.asdf/shims:$PATH"
-# export PATH="$PATH:$(yarn global bin)"              # Add asdf global yarn bin to PATH
-#. ~/.asdf/plugins/java/set-java-home.zsh
-export PATH="$PATH:/Users/trrop/.asdf/installs/rust/1.68.2/bin"
+# Node Version manager (nvm)
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init - zsh)"' >> ~/.zshrc
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"

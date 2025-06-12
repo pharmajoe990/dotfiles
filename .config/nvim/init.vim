@@ -202,7 +202,7 @@ END
 
 " let g:ruby_host_prog = '$HOME/.rbenv/versions/2.5.1/bin/neovim-ruby-host'	" Path to Ruby, to avoid rbenv shimming in
 
-let g:python3_host_prog='/Users/troper/.asdf/shims/python3'
+let g:python3_host_prog='/Users/troper/.pyenv/shims/python3'
 
 " Filetype specific configuration
 " Typescript/Javascript
