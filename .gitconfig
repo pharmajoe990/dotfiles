@@ -36,11 +36,12 @@
 [difftool "nvimdiff"]	
         cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-	tool = lvimdiff
+  tool = nvimdiff
 [mergetool]
-	prompt = 1
-[mergetool "lvimdiff"]
-	cmd = lvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+  prompt = false
+  keepBackup = false
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE / MERGED"
 [core]
 	autocrlf = input
 	excludesFile = ~/.gitignore_global
